@@ -1,0 +1,22 @@
+.products {
+    display: flex;
+    align-items: center;
+
+    overflow-x: auto;
+
+    padding: 5px;
+}
+
+@media screen and (min-width: 426px){
+    .products {
+      width: 100%;
+    
+      align-items: center;
+      flex-wrap: wrap;
+    
+      overflow-x: clip;
+    
+      padding: 5px;
+    }
+    
+}

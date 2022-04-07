@@ -1,14 +1,26 @@
 import "./style.css";
 
 function Product({ item: { id, name, category, price, img }, callback }) {
+  const formatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  const addProduct = () => {
+    callback(id);
+    price = -price;
+  };
+
   return (
     <div className="product">
-      <img src={img} alt={name} />
-      <div>
+      <figure className="productImage">
+        <img src={img} alt={name} />
+      </figure>
+      <div className="productInfo">
         <h3>{name}</h3>
         <span> {category} </span>
-        <p> {price} </p>
-        <button onClick={() => callback(id)}>Adicionar</button>
+        <p> {formatter.format(price)} </p>
+        <button onClick={addProduct}>Adicionar</button>
       </div>
     </div>
   );

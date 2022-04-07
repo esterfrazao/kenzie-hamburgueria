@@ -1,37 +1,168 @@
+/*Geral*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Inter';
 }
 
 .App {
   text-align: center;
 }
 
+/*Cabeçalho*/
+
 header {
-  height: 55px;
   width: 100vw;
+  height: 25vh;  
 
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
+
+  padding: 10px;
+
+  background-color: #F5F5F5;
+}
+
+.pageLogo:hover {
+  cursor:pointer
+}
+
+form {
+  width: 95%;
+}
+
+.searchInput{
+  width: 100%;
+
+  background-color: #FFFFFF;
+
+  border: 2px solid #E0E0E0;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   padding: 10px;
 }
 
+.searchInput input {
+  width: 60%;
+
+  padding: 8.5px 5px;
+
+  border: none;
+
+  font-weight: 400;
+  font-size: 16px;
+  
+  color:inherit;
+}
+
+.searchInput>input::placeholder{
+  color:#E0E0E0;
+}
+
+.searchInput {
+  border-color: #FFFFFF;
+}
+
+.searchButton {
+  padding: 11.15px 20px;
+
+  background-color: #27AE60;
+  color: #FFFFFF;
+
+  font-weight: 500;
+  font-size: 14px;
+
+  border: 2px solid #27AE60;
+  border-radius: 8px;
+}
+
+.searchButton:hover {
+  background-color: #93D7AF;
+  border-color: #93D7AF;
+  cursor: pointer;
+}
+
 .interface {
   display: flex;
+  flex-direction: column;
 }
 
 main {
-  width: 69%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: space-around;
-  justify-content: space-around;
+  width: 100vw;
+  height: 361px;
+
+  display:flex;
+  flex-direction: column;
+
 }
 
-aside {
-  width:29%;
+.cartContainer {
+  width:90vw;
+
+  margin: 0 auto;
+  margin-bottom: 21px;
+
+  background-color: #F5F5F5;
+}
+
+.searchResult {
+  color: #333333;
+  font-weight: 700;
+  font-size: 22px;
+
+  margin: 2vh 0 2vh 7vw;
+}
+
+.searchResult span {
+  color:#828282;
+}
+
+@media screen and (min-width: 426px){
+  header {
+    max-height: 80px;  
+  
+    flex-direction: row;
+  }
+  
+  form {
+    max-width: 365px;
+  }
+
+  .interface {
+    flex-direction: row;
+  }
+
+  main {
+    width: 68%;
+  
+    display: flex;
+    align-items: flex-start;
+  
+    overflow-x: clip;
+  
+    padding: 5px;
+    margin-left: 2vw;
+  }
+
+  .cartContainer {
+    width: 35vw;
+    max-width: 300px;
+
+    margin-top: 20px;
+    margin-right: 2vw;
+  }
+
+  .searchResult {
+    font-size: 26px;
+  }
+  
 }
