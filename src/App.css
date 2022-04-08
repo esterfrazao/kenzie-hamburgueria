@@ -23,13 +23,25 @@ header {
   align-items: center;
   justify-content: space-around;
 
-  padding: 10px;
+  padding: 10px 30px 10px;
 
   background-color: #F5F5F5;
 }
 
+.logoContainer {
+  width:50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .pageLogo:hover {
   cursor:pointer
+}
+
+.formContainer {
+  width:50%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 form {
@@ -48,7 +60,7 @@ form {
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px;
+  padding: 6px;
 }
 
 .searchInput input {
@@ -62,6 +74,11 @@ form {
   font-size: 16px;
   
   color:inherit;
+}
+
+.searchInput input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 .searchInput>input::placeholder{
@@ -108,7 +125,6 @@ main {
 .cartContainer {
   width:90vw;
 
-  margin: 0 auto;
   margin-bottom: 21px;
 
   background-color: #F5F5F5;
@@ -124,6 +140,23 @@ main {
 
 .searchResult span {
   color:#828282;
+}
+
+.MensagemErro {
+  width: 300px;
+  height: 70px;
+
+  border-left: 5px solid #ff0077;
+  box-shadow: 3px 10px 15px #3333338a;
+  border-radius: 8px;
+  background-color:#ffffff;
+  color:#333333;
+  font-size: 14px;
+
+  position: absolute;
+  left: 5px;
+  top: 10vh;
+  
 }
 
 @media screen and (min-width: 426px){

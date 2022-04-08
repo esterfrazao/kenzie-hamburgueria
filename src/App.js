@@ -7,8 +7,8 @@ import Cart from "./components/Cart";
 function App() {
   const [listProducts, setListProducts] = useState([]);
   const [cartList, setCartList] = useState([]);
-  // const [filteredProducts, setfilteredProducts] = useState([]);
   const [filter, setFilter] = useState("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
@@ -31,6 +31,9 @@ function App() {
       .then((res) => {
         if (!cartList.some(({ id }) => id === productId)) {
           setCartList([...cartList, res]);
+        } else {
+          setError(true);
+          setTimeout(() => setError(false), 2500);
         }
       })
       .catch((error) => console.log(error));
@@ -44,21 +47,31 @@ function App() {
 
   return (
     <div className="App">
+      {error && (
+        <div className="MensagemErro">
+          <h2>O produto só pode ser adicionado uma única vez!</h2>
+        </div>
+      )}
+
       <header>
-        <img
-          className="pageLogo"
-          src={logo}
-          alt="logo"
-          onClick={() => setFilter("")}
-        />
-        <form onSubmit={handleSearch}>
-          <div className="searchInput">
-            <input type="text" placeholder="Digitar produto" />
-            <button className="searchButton" type="submit">
-              Pesquisar
-            </button>
-          </div>
-        </form>
+        <div className="logoContainer">
+          <img
+            className="pageLogo"
+            src={logo}
+            alt="logo"
+            onClick={() => setFilter("")}
+          />
+        </div>
+        <div className="searchContainer">
+          <form onSubmit={handleSearch}>
+            <div className="searchInput">
+              <input type="text" placeholder="Digitar produto" />
+              <button className="searchButton" type="submit">
+                Pesquisar
+              </button>
+            </div>
+          </form>
+        </div>
       </header>
       <section className="interface">
         <main>
