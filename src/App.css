@@ -126,6 +126,7 @@ main {
   width:90vw;
 
   margin-bottom: 21px;
+  margin-left: 4vw;
 
   background-color: #F5F5F5;
 }
@@ -159,7 +160,7 @@ main {
   
 }
 
-@media screen and (min-width: 426px){
+@media screen and (min-width: 757px){
   header {
     max-height: 80px;  
   

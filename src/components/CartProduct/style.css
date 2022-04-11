@@ -63,7 +63,7 @@
     justify-content: space-between;
 }
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 757px) {
     .cartProduct {
         max-width: 343px;
         height: 80px;

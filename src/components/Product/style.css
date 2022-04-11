@@ -81,7 +81,7 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 757px) {
     .product {
         width: 45%;
         max-width: 246px;
