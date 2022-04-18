@@ -71,6 +71,7 @@
     cursor:pointer;
 }
 
+/*Media Queries*/
 @media screen and (min-width: 757px) {
     .productsList {
         padding: 11px 11.45px;

@@ -1,13 +1,13 @@
 import "./style.css";
 
-function Product({ item: { id, name, category, price, img }, callback }) {
+const Product = ({ item: { id, name, category, price, img }, handleClick }) => {
   const formatter = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
 
   const addProduct = () => {
-    callback(id);
+    handleClick(id);
     price = -price;
   };
 
@@ -24,6 +24,6 @@ function Product({ item: { id, name, category, price, img }, callback }) {
       </div>
     </div>
   );
-}
+};
 
 export default Product;

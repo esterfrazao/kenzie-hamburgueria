@@ -1,8 +1,10 @@
-import CartProduct from "../CartProduct";
-import { useState, useEffect } from "react";
 import "./style.css";
 
-function Cart({ list, setter }) {
+import { useState, useEffect } from "react";
+
+import CartProduct from "../CartProduct";
+
+const Cart = ({ list, setList }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const formatter = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -12,12 +14,12 @@ function Cart({ list, setter }) {
 
   const deleteProduct = (productId) => {
     const filteredList = list.filter((item) => item.id !== productId);
-    setter(filteredList);
+    setList(filteredList);
     setTotalPrice();
   };
 
   const deleteAllProducts = () => {
-    setter([]);
+    setList([]);
     setTotalPrice();
   };
 
@@ -51,7 +53,7 @@ function Cart({ list, setter }) {
               <CartProduct
                 key={item.id}
                 item={item}
-                callback={() => deleteProduct(item.id, item.price)}
+                deleteProduct={() => deleteProduct(item.id, item.price)}
               />
             ))}
           </ul>
@@ -66,6 +68,6 @@ function Cart({ list, setter }) {
       )}
     </>
   );
-}
+};
 
 export default Cart;

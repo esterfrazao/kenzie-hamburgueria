@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
 import "./App.css";
+
+import { useState, useEffect } from "react";
+
 import logo from "./logo.svg";
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Cart";
 
-function App() {
+const App = () => {
   const [listProducts, setListProducts] = useState([]);
   const [cartList, setCartList] = useState([]);
   const [filter, setFilter] = useState("");
@@ -24,19 +26,13 @@ function App() {
   }, [filter]);
 
   const handleClick = (productId) => {
-    fetch(
-      `https://hamburgueria-kenzie-json-serve.herokuapp.com/products/${productId}`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        if (!cartList.some(({ id }) => id === productId)) {
-          setCartList([...cartList, res]);
-        } else {
-          setError(true);
-          setTimeout(() => setError(false), 2500);
-        }
-      })
-      .catch((error) => console.log(error));
+    const target = listProducts.find(({ id }) => productId === id);
+    if (!cartList.some(({ id }) => id === productId)) {
+      setCartList([...cartList, target]);
+    } else {
+      setError(true);
+      setTimeout(() => setError(false), 2500);
+    }
   };
 
   const handleSearch = (e) => {
@@ -75,7 +71,7 @@ function App() {
       </header>
       <section className="interface">
         <main>
-          {filter !== "" && (
+          {filter && (
             <p className="searchResult">
               Resultado para: <span> {filter} </span>
             </p>
@@ -83,11 +79,11 @@ function App() {
           <ProductsList list={listProducts} handleClick={handleClick} />
         </main>
         <aside className="cartContainer">
-          <Cart list={cartList} setter={setCartList} />
+          <Cart list={cartList} setList={setCartList} />
         </aside>
       </section>
     </div>
   );
-}
+};
 
 export default App;
